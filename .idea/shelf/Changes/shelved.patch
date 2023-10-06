@@ -1,0 +1,211 @@
+Index: java_task_in_python/test_account.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import unittest\r\n\r\nfrom java_task_in_python.account import Account\r\n\r\n\r\nclass TestAccount(unittest.TestCase):\r\n\r\n    def setUp(self) -> None:\r\n        self.grace = Account(\"Grace\", \"1\", \"1234\")\r\n\r\n    def test_deposit_method(self):\r\n        self.grace.deposit(0)\r\n        self.assertEqual(0, self.grace.check_balance(\"1234\"))\r\n        self.grace.deposit(500000)\r\n        self.assertEqual(500000, self.grace.check_balance(\"1234\"))\r\n\r\n    def test_withdraw_method(self):\r\n        self.grace.deposit(500000)\r\n        self.assertEqual(500000, self.grace.check_balance(\"1234\"))\r\n        self.grace.withdraw(100000, \"1234\")\r\n        self.assertEqual(400000, self.grace.check_balance(\"1234\"))\r\n\r\n    def test_validate_pin(self):\r\n        self.grace.deposit(500000)\r\n        self.assertEqual(500000, self.grace.check_balance(\"1234\"))\r\n        self.assertRaises(ValueError, self.grace.check_balance,\"1235\")\r\n\r\n    def test_check_balance_method(self):\r\n        self.grace.deposit(0)\r\n        self.assertEqual(0, self.grace.check_balance(\"1234\"))\r\n        self.grace.deposit(500000)\r\n        self.assertEqual(500000, self.grace.check_balance(\"1234\"))\r\n\r\n    def test_validate_withdrawal_method(self):\r\n        self.grace.deposit(500000)\r\n        self.assertEqual(500000, self.grace.check_balance(\"1234\"))\r\n        self.assertRaises(ValueError, self.grace.withdraw, -100000, \"1234\")\r\n        self.assertEqual(500000, self.grace.check_balance(\"1234\"))\r\n\r\n    def test_can_update_pin(self):\r\n        self.grace.deposit(500000)\r\n        self.assertEqual(500000, self.grace.check_balance(\"1234\"))\r\n        self.grace.update_pin(\"1234\",\"3456\")\r\n        self.grace.deposit(500000)\r\n        self.assertEqual(1000000, self.grace.check_balance(\"3456\"))\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/java_task_in_python/test_account.py b/java_task_in_python/test_account.py
+--- a/java_task_in_python/test_account.py	(revision 5b633c1c02805e9c9042ab71bc3725e0e83cba89)
++++ b/java_task_in_python/test_account.py	(date 1696594240294)
+@@ -43,5 +43,6 @@
+         self.grace.update_pin("1234","3456")
+         self.grace.deposit(500000)
+         self.assertEqual(1000000, self.grace.check_balance("3456"))
++        #grace
+ 
+ 
+Index: ../pythonProject1/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../pythonProject1/.idea/workspace.xml b/../pythonProject1/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1695050853445)
++++ b/../pythonProject1/.idea/workspace.xml	(date 1695050853445)
+@@ -0,0 +1,126 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="b463bc06-bb18-453e-896a-ff1a1a75cc2c" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/check_out_app.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/classes_in_python.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/credit_card_validator.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/custom_exception_class.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/email_validator.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/geopoliticalzones.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/intersection_of_elements.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/main.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/nested_list.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/password_validator.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/runner_up.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/static_methods.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/television.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/television_test.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/time_table.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/class_work/your-vat.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/java_task_in_python/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/java_task_in_python/account.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/java_task_in_python/account_correction.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/java_task_in_python/array_task3.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/java_task_in_python/atm_machine.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/java_task_in_python/bank_app.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/java_task_in_python/play_book_array.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/java_task_in_python/test_account.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/java_task_in_python/test_bank.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/main.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/random_codes/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/random_codes/area.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/random_codes/flyer.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/random_codes/list_comprehensions.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/random_codes/second_best_corrections.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/random_codes/second_best_student.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/../PYTHON/random_codes/spliting -strings.py" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 1
++}</component>
++  <component name="ProjectId" id="2V9dCovIJeJxZbjGCEgV4l6zjzI" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  }
++}</component>
++  <component name="RunManager">
++    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
++      <module name="pythonProject1" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="b463bc06-bb18-453e-896a-ff1a1a75cc2c" name="Changes" comment="" />
++      <created>1694252105027</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1694252105027</updated>
++      <workItem from="1694252117657" duration="82000" />
++      <workItem from="1694252295549" duration="590000" />
++      <workItem from="1694510166172" duration="658000" />
++      <workItem from="1694607884375" duration="66000" />
++      <workItem from="1695050475069" duration="376000" />
++    </task>
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
++          <url>file://$PROJECT_DIR$/main.py</url>
++          <line>8</line>
++          <option name="timeStamp" value="1" />
++        </line-breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
++  </component>
++</project>
+\ No newline at end of file
+Index: ../.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../.idea/workspace.xml b/../.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1693228563311)
++++ b/../.idea/workspace.xml	(date 1693228563311)
+@@ -0,0 +1,46 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ChangeListManager">
++    <list default="true" id="06b682f6-f2c8-423a-b93f-788b87e3a0ad" name="Changes" comment="" />
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="ProjectColorInfo"><![CDATA[{
++  "associatedIndex": 8
++}]]></component>
++  <component name="ProjectId" id="2UcAOPZSb9B9wr8wHZdb7xSXu8b" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "git-widget-placeholder": "master",
++    "last_opened_file_path": "C:/Users/Grace/PycharmProjects/pythonProject",
++    "vue.rearranger.settings.migration": "true"
++  }
++}]]></component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="06b682f6-f2c8-423a-b93f-788b87e3a0ad" name="Changes" comment="" />
++      <created>1693228463391</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1693228463391</updated>
++      <workItem from="1693228464569" duration="99000" />
++    </task>
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++</project>
+\ No newline at end of file
